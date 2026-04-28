@@ -545,9 +545,7 @@ function htmlToText(email) {
 
     const tempDiv = document.createElement('div');
 
-    tempDiv.innerHTML = email.content.replace(
-        /<(img|iframe|object|embed|video|audio|source|link)[^>]*>/gi, ''
-    );
+    tempDiv.innerHTML = email.content.replace(/[<>]/g, '');
 
     const scriptsAndStyles = tempDiv.querySelectorAll('script, style, title');
     scriptsAndStyles.forEach(el => el.remove());
